@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>林家涼麵 Since 2000</title>
+<meta name="description" content="林家涼麵｜高雄新興區林森一路上的涼麵老店，2000 年開業至今。傳統麻醬涼麵、椒麻、和風、油醋，冬天還有熱麵與味噌湯。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700;900&family=Noto+Sans+TC:wght@400;500;700&family=Cormorant+Garamond:wght@500;600&display=swap">
+<meta property="og:type" content="website">
+<meta property="og:title" content="林家涼麵｜一年四季的麵店 Since 2000">
+<meta property="og:description" content="高雄林森一路上的涼麵老店，傳統麻醬涼麵、椒麻、和風，冬天還有熱麵與味噌湯。">
+<meta property="og:image" content="https://hemu2026.github.io/linjia/img/og.jpg">
+<meta property="og:url" content="https://hemu2026.github.io/linjia/">
+<meta name="theme-color" content="#671D16">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<style>
+  body { margin: 0; }
+  [hidden] { display: none !important; }
+  .map { margin-top: 28px; width: 100%; aspect-ratio: 16 / 10; border: 0; filter: saturate(.85); }
+  :root {
+    color-scheme: light;
+    /* 林家迷你 CIS：米麵白／老店紅／麻醬棕為主，辣油橘只做少量重點 */
+    --page: #F8F4EC;       /* 米麵白提亮，作為頁面底 */
+    --paper: #F2E9DA;      /* 米麵白 */
+    --red: #671D16;        /* 老店紅 */
+    --brown: #6C4125;      /* 麻醬棕 */
+    --linen: #D1C2AB;      /* 亞麻米 */
+    --khaki: #A99176;      /* 木質卡其 */
+    --chili: #D06C37;      /* 辣油橘 */
+    --ink: #2A1A12;
+    --ink-soft: #6B5646;
+    --line: #D9CCB8;
+    --f-serif: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+    --f-sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+    --f-en: "Cormorant Garamond", "Times New Roman", serif;
+    --wrap: 1180px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body { background: var(--page); color: var(--ink); font-family: var(--f-sans); font-size: 16px; line-height: 1.9; letter-spacing: .02em; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; }
+  img { display: block; max-width: 100%; height: auto; }
+  p { margin: 0; }
+  h1, h2, h3 { font-family: var(--f-serif); font-weight: 700; margin: 0; line-height: 1.35; letter-spacing: .12em; text-wrap: balance; }
+  .wrap { max-width: var(--wrap); margin-inline: auto; padding-inline: 24px; }
+  .en { font-family: var(--f-en); font-weight: 600; letter-spacing: .3em; text-transform: uppercase; font-size: 15px; color: var(--chili); }
+  :focus-visible { outline: 2px solid var(--chili); outline-offset: 3px; }
+
+  /* 直角按鈕 */
+  .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 28px; font-size: 15px; letter-spacing: .15em; text-decoration: none; border: 1px solid var(--red); transition: background .25s, color .25s, border-color .25s; }
+  .btn-red { background: var(--red); color: var(--paper); }
+  .btn-red:hover { background: var(--ink); border-color: var(--ink); }
+  .btn-ghost { color: var(--red); background: transparent; }
+  .btn-ghost:hover { background: var(--red); color: var(--paper); }
+
+  /* 置中標題，兩側細線 */
+  .title { display: grid; justify-items: center; gap: 10px; text-align: center; margin-bottom: 48px; }
+  .title h2 { display: flex; align-items: center; gap: 28px; font-size: clamp(26px, 3.4vw, 36px); }
+  .title h2::before, .title h2::after { content: ""; width: clamp(28px, 6vw, 72px); height: 1px; background: var(--ink); opacity: .5; }
+  .title p { color: var(--ink-soft); max-width: 32em; }
+
+  /* ---------- header ---------- */
+  .top { background: var(--page); border-bottom: 1px solid var(--line); }
+  .top-row { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; padding-block: 18px 10px; }
+  .brand { grid-column: 2; display: grid; justify-items: center; gap: 4px; text-decoration: none; }
+  .brand-mark { width: 56px; height: 60px; background: var(--ink); -webkit-mask: url(img/logo.png) center/contain no-repeat; mask: url(img/logo.png) center/contain no-repeat; }
+  .brand b { font-family: var(--f-serif); font-weight: 900; font-size: 18px; letter-spacing: .4em; padding-left: .4em; }
+  .top .btn { justify-self: end; min-height: 40px; padding: 0 20px; font-size: 14px; }
+  .nav { display: flex; justify-content: center; gap: 44px; padding-block: 6px 16px; font-size: 14px; letter-spacing: .2em; }
+  .nav a { text-decoration: none; color: var(--ink-soft); }
+  .nav a:hover { color: var(--red); }
+  @media (max-width: 720px) {
+    .top-row { grid-template-columns: auto 1fr auto; padding-block: 12px; }
+    .brand { grid-column: 1; grid-template-columns: auto auto; align-items: center; gap: 10px; }
+    .brand-mark { width: 40px; height: 44px; }
+    .brand b { font-size: 16px; letter-spacing: .25em; }
+    .top .btn { grid-column: 3; }
+    .nav { display: none; }
+  }
+
+  /* ---------- hero 滿版 ---------- */
+  .hero { position: relative; color: var(--paper); isolation: isolate; }
+  .hero picture { display: block; }
+  .hero picture, .hero img { width: 100%; height: clamp(460px, 62vw, 760px); object-fit: cover; }
+  .hero::after { content: ""; position: absolute; inset: 0; z-index: 0; background: linear-gradient(180deg, rgba(30, 16, 8, .72) 0%, rgba(30, 16, 8, .35) 45%, rgba(30, 16, 8, 0) 72%); pointer-events: none; }
+  .hero-copy { position: absolute; inset: 0; z-index: 1; display: grid; align-content: start; padding-top: clamp(48px, 7vw, 96px); }
+  .hero-copy .wrap { width: 100%; display: grid; gap: 18px; }
+  .hero .en { color: var(--linen); }
+  .hero h1 { font-size: clamp(40px, 6.4vw, 84px); font-weight: 900; letter-spacing: .14em; color: #F3E3C3; }
+  .hero .sub { font-family: var(--f-serif); font-size: clamp(17px, 2vw, 22px); letter-spacing: .3em; color: var(--paper); }
+  .hero .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 10px; }
+  .hero .btn-red { background: var(--paper); color: var(--red); border-color: var(--paper); }
+  .hero .btn-red:hover { background: var(--red); color: var(--paper); border-color: var(--red); }
+  .hero .btn-ghost { color: var(--paper); border-color: rgba(242, 233, 218, .7); }
+  .hero .btn-ghost:hover { background: var(--paper); color: var(--red); }
+  @media (max-width: 720px) { .hero .actions .btn { flex: 1; padding: 0 12px; } }
+
+  /* 店家資訊列 */
+  .quick { border-bottom: 1px solid var(--line); }
+  .quick .wrap { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .quick div { padding: 28px 24px; display: grid; gap: 4px; justify-items: center; text-align: center; }
+  .quick div + div { border-left: 1px solid var(--line); }
+  .quick span { font-family: var(--f-en); font-weight: 600; font-size: 13px; letter-spacing: .3em; color: var(--chili); }
+  .quick b { font-weight: 500; font-size: 15px; }
+  .quick a { text-decoration: none; border-bottom: 1px solid var(--khaki); }
+  .quick a:hover { color: var(--red); border-color: var(--red); }
+  @media (max-width: 760px) {
+    .quick .wrap { grid-template-columns: 1fr; padding-inline: 24px; }
+    .quick div { padding: 16px 0; }
+    .quick div + div { border-left: 0; border-top: 1px solid var(--line); }
+  }
+
+  /* ---------- 半版交錯 ---------- */
+  .split { display: grid; grid-template-columns: 1fr 1fr; align-items: stretch; }
+  .split > img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4 / 5; }
+  .split .txt { background: var(--paper); display: grid; align-content: center; gap: 22px; padding: clamp(40px, 7vw, 96px); }
+  .split.flip .txt { order: -1; }
+  .split h2 { font-size: clamp(28px, 3.6vw, 42px); }
+  .split p { color: var(--ink-soft); max-width: 30em; }
+  .split .facts { font-size: 14px; color: var(--brown); letter-spacing: .1em; padding-top: 16px; border-top: 1px solid var(--line); max-width: 30em; }
+  .split .btn { justify-self: start; }
+  @media (max-width: 860px) {
+    .split { grid-template-columns: 1fr; }
+    .split > img { aspect-ratio: 4 / 3; }
+    .split.flip .txt { order: 0; }
+    .split .txt { padding: 40px 24px 48px; }
+  }
+  .gap { height: clamp(72px, 10vw, 120px); }
+
+  /* ---------- 涼的 ---------- */
+  .sauces { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+  .sauce { display: grid; gap: 10px; align-content: start; text-align: center; }
+  .sauce img, .sauce .ph { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; }
+  .sauce .ph { background: var(--paper); border: 1px solid var(--line); display: grid; place-content: center; gap: 4px; }
+  .sauce .ph b { font-family: var(--f-serif); font-size: 24px; letter-spacing: .2em; color: var(--red); }
+  .sauce .ph small { font-family: var(--f-en); font-size: 14px; letter-spacing: .3em; color: var(--chili); }
+  .sauce h3 { font-size: 21px; margin-top: 10px; }
+  .sauce .en { font-size: 13px; }
+  .sauce p { font-size: 15px; color: var(--ink-soft); }
+  @media (max-width: 960px) { .sauces { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .sauces { gap: 32px 16px; } .sauce h3 { font-size: 18px; } .sauce p { font-size: 14px; } }
+
+  .menu-note { margin-top: 56px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .menu-note > div { display: grid; grid-template-columns: 8em 1fr; gap: 16px; padding: 18px 8px; }
+  .menu-note > div + div { border-top: 1px solid var(--line); }
+  .menu-note dt { font-family: var(--f-serif); font-weight: 700; letter-spacing: .2em; color: var(--red); }
+  .menu-note dd { margin: 0; color: var(--ink-soft); }
+  @media (max-width: 600px) { .menu-note > div { grid-template-columns: 1fr; gap: 2px; } }
+
+  /* 熱的：菜單式清單 */
+  .list { list-style: none; margin: 0; padding: 0; max-width: 30em; }
+  .list li { display: grid; gap: 2px; padding-block: 14px; border-bottom: 1px solid var(--line); }
+  .list li:first-child { border-top: 1px solid var(--line); }
+  .list b { font-family: var(--f-serif); font-weight: 700; font-size: 18px; letter-spacing: .12em; }
+  .list b small { font-family: var(--f-sans); font-weight: 500; font-size: 12px; letter-spacing: .1em; color: var(--paper); background: var(--chili); padding: 1px 8px; margin-left: 10px; vertical-align: 3px; }
+  .list span { font-size: 14px; color: var(--ink-soft); }
+
+  /* 故事年份 */
+  .years { display: grid; gap: 0; max-width: 30em; border-top: 1px solid var(--line); }
+  .years div { display: grid; grid-template-columns: 4.5em 1fr; gap: 12px; align-items: baseline; padding-block: 12px; border-bottom: 1px solid var(--line); }
+  .years b { font-family: var(--f-en); font-weight: 600; font-size: 24px; color: var(--red); letter-spacing: .05em; font-variant-numeric: lining-nums tabular-nums; }
+  .years span { font-size: 15px; }
+  .years a { color: var(--red); }
+
+  /* ---------- 門市 ---------- */
+  .visit { background: var(--red); color: var(--paper); padding-block: clamp(72px, 9vw, 112px); }
+  .visit .title h2::before, .visit .title h2::after { background: var(--paper); }
+  .visit .en { color: var(--linen); }
+  .visit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 88px); }
+  .info { margin: 0; border-top: 1px solid rgba(242, 233, 218, .25); }
+  .info > div { display: grid; grid-template-columns: 6em 1fr; gap: 12px; padding-block: 16px; border-bottom: 1px solid rgba(242, 233, 218, .25); }
+  .info dt { font-family: var(--f-serif); letter-spacing: .2em; color: var(--linen); }
+  .info dd { margin: 0; }
+  .info dd small { display: block; font-size: 14px; color: var(--linen); }
+  .info a { text-decoration: none; border-bottom: 1px solid rgba(209, 194, 171, .6); }
+  .visit .btn-ghost { color: var(--paper); border-color: rgba(242, 233, 218, .7); margin-top: 28px; }
+  .visit .btn-ghost:hover { background: var(--paper); color: var(--red); }
+  .order { display: grid; gap: 12px; align-content: start; }
+  .order a { display: grid; grid-template-columns: 1fr auto; gap: 2px 16px; align-items: center; padding: 20px 24px; text-decoration: none; border: 1px solid rgba(242, 233, 218, .35); transition: background .25s, border-color .25s; }
+  .order a:hover { background: rgba(242, 233, 218, .08); border-color: var(--paper); }
+  .order a b { font-family: var(--f-serif); font-weight: 700; font-size: 19px; letter-spacing: .12em; }
+  .order a small { grid-column: 1; font-size: 13px; color: var(--linen); }
+  .order a i { grid-row: 1 / span 2; grid-column: 2; font-style: normal; font-family: var(--f-en); font-size: 22px; }
+  .order a.main { background: var(--paper); color: var(--red); border-color: var(--paper); }
+  .order a.main small { color: var(--brown); }
+  .order a.main:hover { background: #fff; }
+  .group { margin-top: 12px; font-size: 15px; color: var(--paper); padding: 16px 0 0; border-top: 1px solid rgba(242, 233, 218, .25); }
+  .group b { font-family: var(--f-serif); letter-spacing: .12em; margin-right: 8px; }
+  @media (max-width: 860px) { .visit-grid { grid-template-columns: 1fr; } }
+
+  footer { padding-block: 56px; text-align: center; display: grid; justify-items: center; gap: 14px; font-size: 13px; color: var(--ink-soft); }
+  footer .brand-mark { width: 44px; height: 48px; background: var(--ink-soft); }
+  footer nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 28px; letter-spacing: .15em; }
+  footer nav a { text-decoration: none; }
+  footer nav a:hover { color: var(--red); }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top-row">
+    <a class="brand" href="#top" aria-label="林家涼麵 回到頂端">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <b>林家涼麵</b>
+    </a>
+    <a class="btn btn-red" href="https://store.dudooeat.com/order/store/02190ed21a1949e09161fa84db56ada7" target="_blank" rel="noopener">線上點餐</a>
+  </div>
+  <nav class="nav" aria-label="主選單">
+    <a href="#cold">涼的</a>
+    <a href="#hot">熱的</a>
+    <a href="#story">品牌故事</a>
+    <a href="#visit">門市資訊</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero" aria-label="林家涼麵">
+    <picture>
+      <source media="(max-width: 720px)" srcset="img/hero-mobile.webp">
+      <img src="img/hero-wide.webp" width="2200" height="1237" alt="一桌林家涼麵：涼麵、乾麵、味噌湯、小菜與冷泡茶">
+    </picture>
+    <div class="hero-copy">
+      <div class="wrap">
+        <span class="en">Linjia Cold Noodles · Since 2000</span>
+        <h1>一年四季的麵店</h1>
+        <p class="sub">冬の暖，夏の涼</p>
+        <div class="actions">
+          <a class="btn btn-red" href="https://store.dudooeat.com/order/store/02190ed21a1949e09161fa84db56ada7" target="_blank" rel="noopener">線上點餐・自取</a>
+          <a class="btn btn-ghost" href="#cold">看菜單</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quick" aria-label="門市資訊">
+    <div class="wrap">
+      <div><span>ADDRESS</span><b><a href="https://www.google.com/maps/search/?api=1&query=%E6%9E%97%E5%AE%B6%E6%B6%BC%E9%BA%B5+%E9%AB%98%E9%9B%84%E5%B8%82%E6%96%B0%E8%88%88%E5%8D%80%E6%9E%97%E6%A3%AE%E4%B8%80%E8%B7%AF278%E8%99%9F" target="_blank" rel="noopener">高雄市新興區林森一路 278 號</a></b></div>
+      <div><span>HOURS</span><b>10:00–17:30・週日公休</b></div>
+      <div><span>TEL</span><b><a href="tel:072355316">07-235-5316</a>・<a href="tel:072366759">07-236-6759</a></b></div>
+    </div>
+  </section>
+
+  <div class="gap"></div>
+
+  <section class="split" aria-labelledby="sig-title">
+    <img src="img/sig.webp" width="880" height="1100" alt="傳統麻醬涼麵，配小黃瓜絲、紅蘿蔔絲與豆芽菜" loading="lazy">
+    <div class="txt">
+      <span class="en">Signature</span>
+      <h2 id="sig-title">傳統麻醬涼麵</h2>
+      <p>林家的第一道菜，也是點最多的一道。麻醬是阿珍自己調的比例，不用現成醬；淋在每天早上新鮮送到、當天現煮的麵上，配小黃瓜絲、紅蘿蔔絲，拌開就是很多高雄人從小吃到大的味道。</p>
+      <p class="facts">自家調配麻醬　／　麵條當天現煮　／　可升級味噌加蛋套餐</p>
+    </div>
+  </section>
+
+  <div class="gap"></div>
+
+  <section class="wrap" id="cold" aria-labelledby="cold-title">
+    <div class="title">
+      <span class="en">Cold Noodles</span>
+      <h2 id="cold-title">涼的</h2>
+      <p>四種醬，先選醬，再選配料。</p>
+    </div>
+    <div class="sauces">
+      <article class="sauce">
+        <img src="img/s-sesame.webp" width="800" height="800" alt="傳統麻醬涼麵" loading="lazy">
+        <h3>傳統麻醬</h3>
+        <span class="en">Sesame</span>
+        <p>林家招牌。最推雞肉涼麵，或三種配料一次加滿的三合一。</p>
+      </article>
+      <article class="sauce">
+        <img src="img/s-mala.webp" width="800" height="800" alt="椒麻雞肉涼麵" loading="lazy">
+        <h3>椒麻</h3>
+        <span class="en">Sichuan Pepper</span>
+        <p>花椒香麻，微微辣。醬是素的，吃素的朋友也能點。</p>
+      </article>
+      <article class="sauce">
+        <img src="img/s-wafu.webp" width="800" height="800" alt="日式和風涼麵，配玉米與海苔絲" loading="lazy">
+        <h3>日式和風</h3>
+        <span class="en">Wafu</span>
+        <p>日式醬油風味，配玉米、海苔絲，夏天很對味。</p>
+      </article>
+      <article class="sauce">
+        <div class="ph" role="img" aria-label="油醋醬新品，照片拍攝中"><b>新品</b><small>COMING SOON</small></div>
+        <h3>油醋</h3>
+        <span class="en">Vinaigrette</span>
+        <p>配小黃瓜、紅蘿蔔和花生粒，四種醬裡最清爽的一個。</p>
+      </article>
+    </div>
+    <dl class="menu-note">
+      <div><dt>配料</dt><dd>雞肉・榨菜肉絲・特製酢醬・牛肉（限量）・牛肚（限量）・蔬食（不加蒜）</dd></div>
+      <div><dt>麵條</dt><dd>可換全麥麵</dd></div>
+      <div><dt>升級套餐</dt><dd>A 味噌加蛋湯＋小菜　B 冷泡茶＋小菜　C 味噌加蛋湯＋小菜＋冷泡茶</dd></div>
+    </dl>
+  </section>
+
+  <div class="gap"></div>
+
+  <section class="split flip" id="hot" aria-labelledby="hot-title">
+    <img src="img/hot.webp" width="880" height="1100" alt="筷子夾起一大口熱乾麵" loading="lazy">
+    <div class="txt">
+      <span class="en">Hot Noodles</span>
+      <h2 id="hot-title">熱的</h2>
+      <p>天冷的時候，林家一樣有麵吃。</p>
+      <ul class="list">
+        <li><b>舒肥雞麻醬乾麵<small>暖心推薦</small></b><span>低溫熟成的嫩雞肉片，配林家麻醬熱熱拌著吃</span></li>
+        <li><b>麻醬乾麵</b><span>招牌麻醬的熱麵版本，可以加剁椒</span></li>
+        <li><b>椒來麻辣拌麵</b><span>寬麵配椒麻香辣醬，喜歡重口味必點</span></li>
+        <li><b>味噌加蛋湯</b><span>林家招牌湯，配什麼麵都對味</span></li>
+        <li><b>陽春麵・粄條・鹹水意麵・餛飩麵・榨菜肉絲麵</b><span>乾的、湯的都可以</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="gap"></div>
+
+  <section class="split" id="story" aria-labelledby="story-title">
+    <img src="img/story.webp" width="880" height="1100" alt="一桌林家涼麵：各式涼麵、味噌湯、小菜與冷泡茶" loading="lazy">
+    <div class="txt">
+      <span class="en">Our Story</span>
+      <h2 id="story-title">一碗涼麵，撐起一個家</h2>
+      <p>民國 88 年夏天，阿珍一個人帶著兩個年紀還小的女兒北上學做涼麵。回到高雄，先在洛陽街開了一年，後來才搬到現在的林森一路 278 號。剛開始生意不好做，她還是堅持麵條當天現煮、不用外面現成的油麵，麻醬也自己調比例，不走方便速成的路。</p>
+      <p>就這樣一盤一盤做，老客人慢慢多了起來。現在換兩個女兒接手，媽媽的做法沒變，再加上冬天也能吃的熱麵，讓林家一年四季都有剛好的那一碗。</p>
+      <div class="years">
+        <div><b>1999</b><span>阿珍北上學做涼麵</span></div>
+        <div><b>2000</b><span>在高雄洛陽街開店，一年後搬到林森一路</span></div>
+        <div><b>2025</b><span>姊妹品牌 <a href="https://hemu2026.github.io/moku/" target="_blank" rel="noopener">木谷食麵所</a> 在鳳山開幕</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="gap"></div>
+
+  <section class="visit" id="visit" aria-labelledby="visit-title">
+    <div class="wrap">
+      <div class="title">
+        <span class="en">Visit Us</span>
+        <h2 id="visit-title">林森總店</h2>
+      </div>
+      <div class="visit-grid">
+        <div>
+          <dl class="info">
+            <div><dt>地址</dt><dd>高雄市新興區林森一路 278 號</dd></div>
+            <div><dt>營業時間</dt><dd>10:00–17:30<small>3 月至 10 月延長營業至 18:30</small></dd></div>
+            <div><dt>公休</dt><dd>每週日固定公休<small>其他店休日公告於 <a href="https://lin.ee/v3xYfQi" target="_blank" rel="noopener">LINE</a>、<a href="https://www.facebook.com/linjiamanKaohsiung/" target="_blank" rel="noopener">Facebook</a>、<a href="https://www.instagram.com/linjiaman200058/" target="_blank" rel="noopener">Instagram</a></small></dd></div>
+            <div><dt>電話</dt><dd><a href="tel:072355316">07-235-5316</a>・<a href="tel:072366759">07-236-6759</a></dd></div>
+            <div><dt>用餐</dt><dd>內用・外帶・自取・外送</dd></div>
+          </dl>
+          <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&query=%E6%9E%97%E5%AE%B6%E6%B6%BC%E9%BA%B5+%E9%AB%98%E9%9B%84%E5%B8%82%E6%96%B0%E8%88%88%E5%8D%80%E6%9E%97%E6%A3%AE%E4%B8%80%E8%B7%AF278%E8%99%9F" target="_blank" rel="noopener">在 Google 地圖開啟</a>
+          <iframe class="map" title="林家涼麵林森總店地圖" src="https://www.google.com/maps?q=%E6%9E%97%E5%AE%B6%E6%B6%BC%E9%BA%B5+%E9%AB%98%E9%9B%84%E5%B8%82%E6%96%B0%E8%88%88%E5%8D%80%E6%9E%97%E6%A3%AE%E4%B8%80%E8%B7%AF278%E8%99%9F&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="order" id="order">
+          <a class="main" href="https://store.dudooeat.com/order/store/02190ed21a1949e09161fa84db56ada7" target="_blank" rel="noopener"><b>線上點餐・到店自取</b><small>選好取餐時間，到店直接拿</small><i>→</i></a>
+          <a href="https://lin.ee/v3xYfQi" target="_blank" rel="noopener"><b>加入 LINE 好友</b><small>公休、新品第一手通知</small><i>→</i></a>
+          <a href="https://www.ubereats.com/tw/store/%E6%9E%97%E5%AE%B6%E6%B6%BC%E9%BA%B5-%E6%9E%97%E6%A3%AE%E7%B8%BD%E5%BA%97/uNaP5f03Rc29vwuIOaRlqQ" target="_blank" rel="noopener"><b>Uber Eats 外送</b><small>外送平台價格與門市不同</small><i>→</i></a>
+          <p class="group"><b>團體大量訂購另享優惠</b>公司行號訂單、家裡聚餐，請撥打電話預訂。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span class="brand-mark" aria-hidden="true"></span>
+  <nav aria-label="社群連結">
+    <a href="https://www.instagram.com/linjiaman200058/" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.facebook.com/linjiamanKaohsiung/" target="_blank" rel="noopener">Facebook</a>
+    <a href="https://lin.ee/v3xYfQi" target="_blank" rel="noopener">LINE</a>
+    <a href="https://hemu2026.github.io/moku/" target="_blank" rel="noopener">姊妹品牌｜木谷食麵所</a>
+  </nav>
+  <p>林家涼麵 Linjia Cold Noodles・Since 2000・和木餐飲旗下品牌</p>
+</footer>
+
+</body>
+</html>
